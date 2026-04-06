@@ -32,5 +32,7 @@ jobs:
           username: ubuntu
           key: ${{ secrets.SSH_KEY }}
           script: |
-            kubectl set image deployment/devops-demo devops-demo=$IMAGE_NAME:${{ github.sha }}
+            IMAGE=${{ env.IMAGE_NAME }}:${{ github.sha }}
+            echo "Using image: $IMAGE"
+            kubectl set image deployment/devops-demo devops-demo=$IMAGE
             kubectl rollout status deployment/devops-demo
