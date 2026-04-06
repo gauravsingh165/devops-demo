@@ -3,9 +3,8 @@ const os = require('os');
 const app = express();
 
 app.get('/', (req, res) => {
-  res.send("Version 2 🚀");
-  res.send(`Running on ${os.hostname()} 🚀`);
   res.send(`Version 2 - ${os.hostname()} 🚀`);
+  res.send("Version 2 🚀");
 });
 
 app.get('/health', (req, res) => {
